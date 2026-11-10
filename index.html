@@ -26,6 +26,7 @@
   --white: #ffffff;
   --grey: #a8a8a8;
   --grey-dim: #6e6e6e;
+  --grey-light: #cfcfcf;     /* log labels — lighter grey for readability */
   --display: 'Anton', 'Bebas Neue', 'Impact', sans-serif;
   --label: 'Bebas Neue', 'Anton', sans-serif;
   --body: 'Inter', system-ui, sans-serif;
@@ -310,7 +311,7 @@ main {
 .day-count {
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--grey-dim);
+  color: var(--grey-light);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -398,9 +399,9 @@ main {
 }
 .sets-key {
   font-family: var(--label);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
-  color: var(--grey-dim);
+  color: var(--grey-light);
   text-transform: uppercase;
 }
 .sets-val {
@@ -420,14 +421,14 @@ main {
   gap: 10px;
 }
 .log-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-.log-hint { font-size: 11.5px; color: var(--grey-dim); }
+.log-hint { font-size: 11.5px; color: var(--grey-light); }
 .set-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .set { display: grid; gap: 4px; justify-items: center; }
 .set label {
   font-family: var(--label);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
-  color: var(--grey-dim);
+  color: var(--grey-light);
 }
 .set input {
   width: 52px;
@@ -442,7 +443,7 @@ main {
   border-radius: 0;
   -webkit-appearance: none;
 }
-.set input::placeholder { color: var(--grey-dim); font-weight: 500; }
+.set input::placeholder { color: #8c8c8c; font-weight: 500; }
 .set input.filled { border-color: var(--green); background: var(--green-soft); }
 .ex-notes {
   width: 100%;
@@ -456,7 +457,7 @@ main {
   resize: vertical;
   border-radius: 0;
 }
-.ex-notes::placeholder { color: var(--grey-dim); }
+.ex-notes::placeholder { color: #8c8c8c; }
 
 /* Other levels */
 .others { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 10px; }
@@ -466,7 +467,7 @@ main {
   font-family: var(--label);
   font-size: 13px;
   letter-spacing: 0.1em;
-  color: var(--grey-dim);
+  color: var(--grey-light);
 }
 .others summary::-webkit-details-marker { display: none; }
 .others summary::before { content: '+ '; color: var(--blue); }
@@ -680,26 +681,26 @@ const DAYS = [
   { focus: { beginner: 'Rows + negatives', intermediate: 'Strict strength', rx: 'Weighted strength' },
     moves: [
       { beginner:     { name: 'Ring Row', note: 'Body position as horizontal as possible.', rx: '4 × 10 reps', sets: 4, unit: 'reps', video: 'https://www.youtube.com/watch?v=NwoWnfJzzII' },
-        intermediate: { name: 'Strict Pull-Up', note: 'Dead hang start, chin over the bar, full lockout at the bottom. Stop 1–2 reps short of failure.', rx: '5 × 3 reps', sets: 5, unit: 'reps' },
-        rx:           { name: 'Weighted Strict Pull-Up', note: 'Dumbbell between the feet or a belt. Pick a load you could do 5 with — do 3.', rx: '5 × 3 reps', sets: 5, unit: 'kg' } },
+        intermediate: { name: 'Strict Pull-Up', note: 'Dead hang start, chin over the bar, full lockout at the bottom. Stop 1–2 reps short of failure.', rx: '5 × 3 reps', sets: 5, unit: 'reps', video: 'https://www.youtube.com/watch?v=HRV5YKKaeVw' },
+        rx:           { name: 'Weighted Strict Pull-Up', note: 'Dumbbell between the feet or a belt. Pick a load you could do 5 with — do 3.', rx: '5 × 3 reps', sets: 5, unit: 'kg', video: 'https://www.youtube.com/watch?v=_qXgDUp2Icc' } },
       { beginner:     { name: 'Eccentric / Negative Pull-Up', note: 'Overhand grip. 3 seconds down. Use a box.', rx: '3 × 5 reps', sets: 3, unit: 'reps', video: 'https://www.youtube.com/watch?v=OwSJc2Pd0_I' },
         intermediate: { name: 'Eccentric / Negative Pull-Up', note: 'Overhand grip. 5 seconds down. Jump or step to the top.', rx: '3 × 4 reps', sets: 3, unit: 'reps', video: 'https://www.youtube.com/watch?v=OwSJc2Pd0_I' },
-        rx:           { name: 'Strict Chest-to-Bar', note: 'Pull the bar to your chest, not your chin. Elbows drive back behind you.', rx: '4 × 4 reps', sets: 4, unit: 'reps' } }
+        rx:           { name: 'Strict Chest-to-Bar', note: 'Pull the bar to your chest, not your chin. Elbows drive back behind you.', rx: '4 × 4 reps', sets: 4, unit: 'reps', video: 'https://www.youtube.com/watch?v=xf69XHAs5w8' } }
     ] },
   { focus: { beginner: 'Assisted pulling', intermediate: 'Kipping', rx: 'Cycling' },
     moves: [
       { beginner:     { name: 'Low Barbell Assisted Pull-Up', note: 'Torso as vertical as possible.', rx: '3 × 10 reps', sets: 3, unit: 'reps', video: 'https://www.youtube.com/watch?v=EETiSSegpuE' },
-        intermediate: { name: 'Kip Swing', note: 'Push the bar away to arch, pull it down to hollow. Feet together, arms straight.', rx: '4 × 8 reps', sets: 4, unit: 'reps' },
-        rx:           { name: 'Butterfly Pull-Up', note: 'Smooth circles, no pause at the top or bottom. Not there yet? Use kipping pull-ups.', rx: '5 × 6 reps', sets: 5, unit: 'reps' } },
+        intermediate: { name: 'Kip Swing', note: 'Push the bar away to arch, pull it down to hollow. Feet together, arms straight.', rx: '4 × 8 reps', sets: 4, unit: 'reps', video: 'https://www.youtube.com/watch?v=18pVtOJ2RxI' },
+        rx:           { name: 'Butterfly Pull-Up', note: 'Smooth circles, no pause at the top or bottom. Not there yet? Use kipping pull-ups.', rx: '5 × 6 reps', sets: 5, unit: 'reps', video: 'https://www.youtube.com/watch?v=U_MhBXnlInE' } },
       { beginner:     { name: 'Lat Pulldown', rx: '3 × 12 reps', sets: 3, unit: 'reps', video: 'https://www.youtube.com/watch?v=z-lxcsIN4T4' },
-        intermediate: { name: 'Kipping Pull-Up', note: 'Only reps you can control. Hip drive takes you up, push away from the bar to come down.', rx: '4 × 4 reps', sets: 4, unit: 'reps' },
-        rx:           { name: 'Kipping Chest-to-Bar', note: 'Same rhythm as your pull-up, finish higher. Rest 90s between sets.', rx: '4 × 6 reps', sets: 4, unit: 'reps' } }
+        intermediate: { name: 'Kipping Pull-Up', note: 'Only reps you can control. Hip drive takes you up, push away from the bar to come down.', rx: '4 × 4 reps', sets: 4, unit: 'reps', video: 'https://www.youtube.com/shorts/jIvbJzs1V4I' },
+        rx:           { name: 'Kipping Chest-to-Bar', note: 'Same rhythm as your pull-up, finish higher. Rest 90s between sets.', rx: '4 × 6 reps', sets: 4, unit: 'reps', video: 'https://www.youtube.com/watch?v=AyPTCEXTjOo' } }
     ] },
   { focus: { beginner: 'Assisted + rows', intermediate: 'Volume', rx: 'Capacity' },
     moves: [
       { beginner:     { name: 'Ring Assisted Pull-Up', rx: '3 × 6 reps', sets: 3, unit: 'reps', video: 'https://www.youtube.com/watch?v=b_upCqabOBA' },
-        intermediate: { name: 'Chin-Up', note: 'Underhand grip, shoulder width. Strict — no kip.', rx: '4 × 4 reps', sets: 4, unit: 'reps' },
-        rx:           { name: 'Max Unbroken Kipping Pull-Ups', note: 'One big set, rest 2–3 minutes between. Stop when your form breaks.', rx: '3 max sets', sets: 3, unit: 'reps' } },
+        intermediate: { name: 'Chin-Up', note: 'Underhand grip, shoulder width. Strict — no kip.', rx: '4 × 4 reps', sets: 4, unit: 'reps', video: 'https://www.youtube.com/watch?v=u3XIZSv2Npw' },
+        rx:           { name: 'Max Unbroken Kipping Pull-Ups', note: 'One big set, rest 2–3 minutes between. Stop when your form breaks.', rx: '3 max sets', sets: 3, unit: 'reps', video: 'https://www.youtube.com/watch?v=6AZs9E8v9-I' } },
       { beginner:     { name: 'Inverted Barbell Row', note: 'Body position as horizontal as possible.', rx: '3 × 10 reps', sets: 3, unit: 'reps', video: 'https://www.youtube.com/watch?v=vZy_Eu_Z0WA' },
         intermediate: { name: 'Feet-Elevated Ring Row', note: 'Feet on a box, body straight as a plank. Pause 1s at the top.', rx: '3 × 12 reps', sets: 3, unit: 'reps' },
         rx:           { name: 'Tempo Strict Pull-Up', note: '3 seconds up, 1 second hold, 3 seconds down.', rx: '3 × 3 reps', sets: 3, unit: 'reps' } }
